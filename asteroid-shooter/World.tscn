@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://gcu66umi6m34"]
+
+[ext_resource type="PackedScene" uid="uid://dwlacp2fk6jrp" path="res://Player.tscn" id="1_c6gwx"]
+
+[node name="World" type="Node3D" unique_id=1321757080]
+
+[node name="Player" parent="." unique_id=426554783 instance=ExtResource("1_c6gwx")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=94988065]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1007489150]
+transform = Transform3D(1, 0, 0, 0, 0.9774159, 0.2113248, 0, -0.2113248, 0.9774159, 0.17413855, 4.008743, 7.967763)
+fov = 75.48041
