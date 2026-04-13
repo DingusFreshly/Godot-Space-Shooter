@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://yjtod8pwjoad"]
+
+[ext_resource type="Script" uid="uid://c0uikpyulck8u" path="res://asteroid.gd" id="1_u87q6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p0ukn"]
+radius = 1.8336937
+
+[sub_resource type="SphereMesh" id="SphereMesh_gm5ib"]
+
+[node name="Asteroid" type="RigidBody3D" unique_id=842677155]
+script = ExtResource("1_u87q6")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=163394107]
+shape = SubResource("SphereShape3D_p0ukn")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1785902958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.005743, 0.14742291, 2.0940108)
+mesh = SubResource("SphereMesh_gm5ib")
