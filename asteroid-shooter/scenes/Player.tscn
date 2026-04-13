@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bohwxniajkckm"]
 
-[ext_resource type="Script" uid="uid://cf33ne4nb5lq1" path="res://Movement.gd" id="1_kne1u"]
+[ext_resource type="Script" uid="uid://cf33ne4nb5lq1" path="res://scripts/Movement.gd" id="1_kne1u"]
 [ext_resource type="ArrayMesh" uid="uid://btdmky7sq3lsj" path="res://Assets/Executioner.obj" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://bnmsdf2q0ydqk" path="res://Assets/Executioner_Executioner_Orange.png" id="2_kne1u"]
 
