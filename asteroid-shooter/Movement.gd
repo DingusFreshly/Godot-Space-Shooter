@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 var max_speed = 50.0
 var acceleration = 0.6
+<<<<<<< Updated upstream
 var pitch_speed = 1.5
 var roll_speed = 1.9
 var yaw_speed = 1.25
@@ -15,6 +16,17 @@ var yaw_input = 0.0
 
 @onready var left_thruster = $LeftThruster
 @onready var right_thruster = $RightThruster
+=======
+var pitch_speed = 1.0
+var roll_speed = 1.0
+var yaw_speed = 1.0
+
+var forward_speed = 0.0
+var vel = Vector3.ZERO
+var pitch_input = 1.0
+var roll_input = 1.0
+var yaw_input = 1.0
+>>>>>>> Stashed changes
 
 func handle_acceleration(delta):
 	
