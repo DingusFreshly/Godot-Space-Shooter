@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bohwxniajkckm"]
+[gd_scene format=3 uid="uid://dwlacp2fk6jrp"]
 
-[ext_resource type="Script" uid="uid://cf33ne4nb5lq1" path="res://scripts/Movement.gd" id="1_kne1u"]
+[ext_resource type="Script" uid="uid://uf1l0g6w2bh6" path="res://scripts/Movement.gd" id="1_kne1u"]
 [ext_resource type="ArrayMesh" uid="uid://btdmky7sq3lsj" path="res://Assets/Executioner.obj" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://bnmsdf2q0ydqk" path="res://Assets/Executioner_Executioner_Orange.png" id="2_kne1u"]
 
@@ -10,6 +10,50 @@ size = Vector3(3.774063, 1, 8.981201)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxr5p"]
 albedo_texture = ExtResource("2_kne1u")
 detail_albedo = ExtResource("2_kne1u")
+
+[sub_resource type="Curve" id="Curve_e80uo"]
+_data = [Vector2(0, 0.50561804), 0.0, 0.0, 0, 0, Vector2(0.41059607, 0.68539333), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cxr5p"]
+curve = SubResource("Curve_e80uo")
+
+[sub_resource type="Gradient" id="Gradient_kne1u"]
+offsets = PackedFloat32Array(0, 0.216, 0.992)
+colors = PackedColorArray(0.017072458, 0.3923474, 0.6665144, 1, 0.046248175, 0.5879351, 0.75293493, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e80uo"]
+gradient = SubResource("Gradient_kne1u")
+
+[sub_resource type="Curve" id="Curve_kne1u"]
+_data = [Vector2(0, 0.5393259), 0.0, 0.0, 0, 0, Vector2(0.29801327, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.22471917), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e80uo"]
+curve = SubResource("Curve_kne1u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kne1u"]
+direction = Vector3(0, 0, 1)
+use_scale_3d = true
+scale_3d_min = Vector3(0.9, 0.9, 0.9)
+scale_3d_max = Vector3(1.1, 1.1, 1.1)
+scale_min = 0.79999995
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_e80uo")
+color_ramp = SubResource("GradientTexture1D_e80uo")
+alpha_curve = SubResource("CurveTexture_cxr5p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kne1u"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_e80uo"]
+material = SubResource("StandardMaterial3D_kne1u")
+
+[sub_resource type="Skin" id="Skin_cxr5p"]
 
 [node name="Player" type="CharacterBody3D" unique_id=426554783]
 motion_mode = 1
@@ -23,3 +67,19 @@ shape = SubResource("BoxShape3D_e80uo")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 mesh = ExtResource("1_kpjcp")
 surface_material_override/0 = SubResource("StandardMaterial3D_cxr5p")
+
+[node name="LeftThruster" type="GPUParticles3D" parent="." unique_id=712270417]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.926728, -0.14581129, 2.5499535)
+amount = 64
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_kne1u")
+draw_pass_1 = SubResource("SphereMesh_e80uo")
+draw_skin = SubResource("Skin_cxr5p")
+
+[node name="RightThruster" type="GPUParticles3D" parent="." unique_id=877508786]
+transform = Transform3D(0.010000001, 0, 0, 0, 0.010000001, 0, 0, 0, 0.010000001, 0.94808805, -0.11455844, 2.5325384)
+amount = 64
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_kne1u")
+draw_pass_1 = SubResource("SphereMesh_e80uo")
+draw_skin = SubResource("Skin_cxr5p")

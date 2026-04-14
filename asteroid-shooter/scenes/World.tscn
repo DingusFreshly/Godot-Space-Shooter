@@ -1,12 +1,31 @@
-[gd_scene format=3 uid="uid://b02mx6oirdxuj"]
+[gd_scene format=3 uid="uid://gcu66umi6m34"]
 
-[ext_resource type="PackedScene" uid="uid://bohwxniajkckm" path="res://scenes/Player.tscn" id="1_c6gwx"]
+[ext_resource type="PackedScene" uid="uid://dwlacp2fk6jrp" path="res://scenes/Player.tscn" id="1_7g83o"]
+[ext_resource type="Texture2D" uid="uid://dhl1v2u35kj4g" path="res://Assets/Space.jpg" id="2_d1c63"]
+[ext_resource type="Script" uid="uid://cl7lp13w6pc4r" path="res://scripts/Camera.gd" id="3_1lgw5"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_js7pq"]
+panorama = ExtResource("2_d1c63")
+filter = false
+
+[sub_resource type="Sky" id="Sky_eu7l1"]
+sky_material = SubResource("PanoramaSkyMaterial_js7pq")
+
+[sub_resource type="Environment" id="Environment_p1v5b"]
+background_mode = 2
+sky = SubResource("Sky_eu7l1")
+sky_custom_fov = 90.0
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="World" type="Node3D" unique_id=1321757080]
 
-[node name="Player" parent="." unique_id=426554783 instance=ExtResource("1_c6gwx")]
+[node name="Player" parent="." unique_id=426554783 instance=ExtResource("1_7g83o")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=94988065]
+environment = SubResource("Environment_p1v5b")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1007489150]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007144451, 2.3841858e-07, 7.7917433)
+transform = Transform3D(1, 0, 0, 0, 0.9774159, 0.2113248, 0, -0.2113248, 0.9774159, 0.17413855, 4.008743, 7.967763)
+fov = 75.48041
+script = ExtResource("3_1lgw5")
