@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://uf1l0g6w2bh6" path="res://scripts/Movement.gd" id="1_kne1u"]
 [ext_resource type="ArrayMesh" uid="uid://btdmky7sq3lsj" path="res://Assets/Executioner.obj" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://bnmsdf2q0ydqk" path="res://Assets/Executioner_Executioner_Orange.png" id="2_kne1u"]
+[ext_resource type="PackedScene" uid="uid://to2h2tnp11t5" path="res://scenes/Bullet.tscn" id="2_mdl7e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e80uo"]
 size = Vector3(3.774063, 1, 8.981201)
@@ -55,9 +56,14 @@ material = SubResource("StandardMaterial3D_kne1u")
 
 [sub_resource type="Skin" id="Skin_cxr5p"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_mdl7e"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qu4a1"]
+
 [node name="Player" type="CharacterBody3D" unique_id=426554783]
 motion_mode = 1
 script = ExtResource("1_kne1u")
+bullet_scene = ExtResource("2_mdl7e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=249749335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029121399, 0, -1.4728957)
@@ -83,3 +89,11 @@ lifetime = 0.2
 process_material = SubResource("ParticleProcessMaterial_kne1u")
 draw_pass_1 = SubResource("SphereMesh_e80uo")
 draw_skin = SubResource("Skin_cxr5p")
+
+[node name="LeftGun" type="CollisionShape3D" parent="." unique_id=1355310708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5)
+shape = SubResource("SphereShape3D_mdl7e")
+
+[node name="RightGun" type="CollisionShape3D" parent="." unique_id=221835930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+shape = SubResource("SphereShape3D_qu4a1")

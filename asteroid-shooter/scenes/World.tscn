@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dwlacp2fk6jrp" path="res://scenes/Player.tscn" id="1_7g83o"]
 [ext_resource type="Texture2D" uid="uid://dhl1v2u35kj4g" path="res://Assets/Space.jpg" id="2_d1c63"]
 [ext_resource type="Script" uid="uid://cl7lp13w6pc4r" path="res://scripts/Camera.gd" id="3_1lgw5"]
+[ext_resource type="PackedScene" uid="uid://to2h2tnp11t5" path="res://scenes/Bullet.tscn" id="4_d1c63"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_js7pq"]
 panorama = ExtResource("2_d1c63")
@@ -29,3 +30,5 @@ environment = SubResource("Environment_p1v5b")
 transform = Transform3D(1, 0, 0, 0, 0.9774159, 0.2113248, 0, -0.2113248, 0.9774159, 0.17413855, 4.008743, 7.967763)
 fov = 75.48041
 script = ExtResource("3_1lgw5")
+
+[node name="Bullet" parent="." unique_id=733140242 instance=ExtResource("4_d1c63")]

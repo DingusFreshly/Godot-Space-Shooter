@@ -9,10 +9,22 @@ script = ExtResource("1_tgwut")
 
 [node name="Button" type="Button" parent="." unique_id=1547633561]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 382.0
-offset_right = 686.0
-offset_bottom = 449.0
+offset_left = 446.0
+offset_top = 412.0
+offset_right = 668.0
+offset_bottom = 479.0
+theme_override_constants/outline_size = 10
 text = "Start"
+
+[node name="Label" type="Label" parent="." unique_id=981716534]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 1154.0
+offset_bottom = 90.0
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 32
+text = "WELCOME TO GODOT SHOOTERS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
