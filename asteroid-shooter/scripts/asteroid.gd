@@ -8,6 +8,7 @@ signal damaged(amount: int)
 @export var size : float
 @export var speed: float
 const ASTEROID_SCENE : PackedScene = preload("res://scenes/asteroid.tscn")
+<<<<<<< Updated upstream
 
 var rotation_vec: Vector3
 
@@ -19,7 +20,10 @@ static func spawn(size: float, direction: Vector3, speed: float) -> Asteroid:
 	return asteroid
 	
 	
+=======
+>>>>>>> Stashed changes
 
+var rotation_vec: Vector3
 
 static func spawn(size: float, direction: Vector3, speed: float) -> Asteroid:
 	var asteroid : Asteroid = ASTEROID_SCENE.instantiate()
