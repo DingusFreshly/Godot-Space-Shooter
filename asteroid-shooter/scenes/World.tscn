@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://gcu66umi6m34"]
 
 [ext_resource type="PackedScene" uid="uid://dwlacp2fk6jrp" path="res://scenes/Player.tscn" id="1_7g83o"]
+[ext_resource type="Script" uid="uid://dqy8p3511rhlp" path="res://scripts/World.gd" id="1_hlk0d"]
 [ext_resource type="Texture2D" uid="uid://dhl1v2u35kj4g" path="res://Assets/Space.jpg" id="2_d1c63"]
 [ext_resource type="Script" uid="uid://cl7lp13w6pc4r" path="res://scripts/Camera.gd" id="3_1lgw5"]
 [ext_resource type="PackedScene" uid="uid://to2h2tnp11t5" path="res://scenes/Bullet.tscn" id="4_d1c63"]
+[ext_resource type="Texture2D" uid="uid://v7kkdy057uwy" path="res://Assets/Crosshair.png" id="5_1lgw5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_js7pq"]
 panorama = ExtResource("2_d1c63")
@@ -20,6 +22,7 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="World" type="Node3D" unique_id=1321757080]
+script = ExtResource("1_hlk0d")
 
 [node name="Player" parent="." unique_id=426554783 instance=ExtResource("1_7g83o")]
 
@@ -32,3 +35,30 @@ fov = 75.48041
 script = ExtResource("3_1lgw5")
 
 [node name="Bullet" parent="." unique_id=733140242 instance=ExtResource("4_d1c63")]
+
+[node name="UI" type="Control" parent="." unique_id=613423065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="TextureRect" parent="UI" unique_id=1967309723]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+texture = ExtResource("5_1lgw5")
+stretch_mode = 3

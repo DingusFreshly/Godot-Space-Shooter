@@ -12,9 +12,9 @@ var shoot_at = 0.05
 
 @export var forward_speed = 0.0
 var vel = Vector3.ZERO
-var pitch_input = 0.0
-var roll_input = 0.0
-var yaw_input = 0.0
+@export var pitch_input = 0.0
+@export var roll_input = 0.0
+@export var yaw_input = 0.0
 
 @onready var left_thruster = $LeftThruster
 @onready var right_thruster = $RightThruster

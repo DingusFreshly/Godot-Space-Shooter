@@ -9,6 +9,7 @@ var button_current = Vector2.ONE
 var sway_timer = 0
 
 func _on_button_pressed() -> void:
+	
 	get_tree().change_scene_to_file("res://scenes/World.tscn")
 
 func _process(delta):
