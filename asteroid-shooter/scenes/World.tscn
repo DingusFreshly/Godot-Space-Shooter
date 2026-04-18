@@ -1,7 +1,5 @@
-[gd_scene format=3 uid="uid://gcu66umi6m34"]
 [gd_scene format=3 uid="uid://b02mx6oirdxuj"]
 
-[ext_resource type="PackedScene" uid="uid://dwlacp2fk6jrp" path="res://scenes/Player.tscn" id="1_7g83o"]
 [ext_resource type="PackedScene" uid="uid://bohwxniajkckm" path="res://scenes/Player.tscn" id="1_7g83o"]
 [ext_resource type="Script" uid="uid://dqy8p3511rhlp" path="res://scripts/World.gd" id="1_hlk0d"]
 [ext_resource type="Texture2D" uid="uid://dhl1v2u35kj4g" path="res://Assets/Space.jpg" id="2_d1c63"]
