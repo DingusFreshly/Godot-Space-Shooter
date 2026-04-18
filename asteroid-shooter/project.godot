@@ -14,6 +14,7 @@ config/name="Asteroid Shooter"
 run/main_scene="uid://chljmfaqsofgd"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<Updatedupstreamrun/main_scene="uid://b02mx6oirdxuj"
 
 [input]
 

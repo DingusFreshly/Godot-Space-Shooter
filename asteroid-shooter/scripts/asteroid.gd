@@ -20,6 +20,14 @@ static func spawn(size: float, direction: Vector3, speed: float) -> Asteroid:
 	
 	
 
+
+static func spawn(size: float, direction: Vector3, speed: float) -> Asteroid:
+	var asteroid : Asteroid = ASTEROID_SCENE.instantiate()
+	asteroid.size = size
+	asteroid.direction = direction
+	asteroid.speed = speed
+	return asteroid
+	
 func _ready() -> void:
 	print(typeof(ASTEROID_SCENE))
 	print(ASTEROID_SCENE)

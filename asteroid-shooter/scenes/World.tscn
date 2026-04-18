@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bohwxniajkckm" path="res://scenes/Player.tscn" id="1_7g83o"]
 [ext_resource type="Script" uid="uid://dqy8p3511rhlp" path="res://scripts/World.gd" id="1_hlk0d"]
+[ext_resource type="Script" uid="uid://wcn2say5sd3f" path="res://scripts/world.gd" id="1_1lgw5"]
+[ext_resource type="PackedScene" uid="uid://bohwxniajkckm" path="res://scenes/Player.tscn" id="1_7g83o"]
 [ext_resource type="Texture2D" uid="uid://dhl1v2u35kj4g" path="res://Assets/Space.jpg" id="2_d1c63"]
 [ext_resource type="Script" uid="uid://cl7lp13w6pc4r" path="res://scripts/Camera.gd" id="3_1lgw5"]
 [ext_resource type="PackedScene" uid="uid://to2h2tnp11t5" path="res://scenes/Bullet.tscn" id="4_d1c63"]
@@ -23,6 +25,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="World" type="Node3D" unique_id=1321757080]
 script = ExtResource("1_hlk0d")
+script = ExtResource("1_1lgw5")
 
 [node name="Player" parent="." unique_id=426554783 instance=ExtResource("1_7g83o")]
 
@@ -61,3 +64,4 @@ scale = Vector2(0.6, 0.6)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("5_1lgw5")
 stretch_mode = 3
+[node name="AsteroidSpawn" type="Node3D" parent="." unique_id=1954064238]
