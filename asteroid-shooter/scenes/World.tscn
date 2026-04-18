@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://gcu66umi6m34"]
 
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://dwlacp2fk6jrp" path="res://scenes/Player.tscn" id="1_7g83o"]
 [ext_resource type="Texture2D" uid="uid://dhl1v2u35kj4g" path="res://Assets/Space.jpg" id="2_d1c63"]
 [ext_resource type="Script" uid="uid://cl7lp13w6pc4r" path="res://scripts/Camera.gd" id="3_1lgw5"]
@@ -22,13 +23,28 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="World" type="Node3D" unique_id=1321757080]
 
 [node name="Player" parent="." unique_id=426554783 instance=ExtResource("1_7g83o")]
+=======
+[ext_resource type="PackedScene" uid="uid://bohwxniajkckm" path="res://scenes/Player.tscn" id="1_32lhk"]
+[ext_resource type="PackedScene" uid="uid://yjtod8pwjoad" path="res://scenes/asteroid.tscn" id="2_7g83o"]
+
+[node name="World" type="Node3D" unique_id=1321757080]
+
+[node name="Player" parent="." unique_id=426554783 instance=ExtResource("1_32lhk")]
+>>>>>>> Stashed changes
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=94988065]
 environment = SubResource("Environment_p1v5b")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1007489150]
+<<<<<<< Updated upstream
 transform = Transform3D(1, 0, 0, 0, 0.9774159, 0.2113248, 0, -0.2113248, 0.9774159, 0.17413855, 4.008743, 7.967763)
 fov = 75.48041
 script = ExtResource("3_1lgw5")
 
 [node name="Bullet" parent="." unique_id=733140242 instance=ExtResource("4_d1c63")]
+=======
+transform = Transform3D(-0.12578246, -0.8494714, -0.5124229, -0.7572674, 0.41589358, -0.5035659, 0.6408782, 0.3247014, -0.6955891, -9.080475, 2.3841858e-07, -6.431837)
+
+[node name="Asteroid" parent="." unique_id=842677155 instance=ExtResource("2_7g83o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3627534, 3.7534037, -5.310325)
+>>>>>>> Stashed changes
