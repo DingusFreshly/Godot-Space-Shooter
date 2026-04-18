@@ -13,18 +13,22 @@ offset_left = 446.0
 offset_top = 412.0
 offset_right = 668.0
 offset_bottom = 479.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 10
 text = "Start"
 
-[node name="Label" type="Label" parent="." unique_id=981716534]
+[node name="Title" type="Label" parent="." unique_id=981716534]
 layout_mode = 0
 offset_top = 45.0
 offset_right = 1154.0
 offset_bottom = 90.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 25
 theme_override_font_sizes/font_size = 32
 text = "WELCOME TO GODOT SHOOTERS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

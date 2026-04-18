@@ -19,6 +19,9 @@ var yaw_input = 0.0
 @onready var left_thruster = $LeftThruster
 @onready var right_thruster = $RightThruster
 
+@onready var right_gun_flame = get_node("RightGunFlame")
+@onready var left_gun_flame = get_node("LeftGunFlame")
+
 @onready var right_gun = get_node("RightGun")
 @onready var left_gun = get_node("LeftGun")
 var bullet_tick = 9
@@ -51,8 +54,17 @@ func get_shoot_transform(delta):
 	var gun: Node3D
 	
 	if bullet_tick % 2 == 0:
+		
+		right_gun_flame.emitting = true
+		left_gun_flame.emitting = false
+		
 		gun = right_gun
 	else:
+		right_gun_flame.emitting = false
+		left_gun_flame.emitting = true
+		
+		
+		
 		gun = left_gun
 	
 	var t = gun.global_transform

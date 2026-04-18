@@ -60,6 +60,53 @@ material = SubResource("StandardMaterial3D_kne1u")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qu4a1"]
 
+[sub_resource type="Gradient" id="Gradient_mdl7e"]
+offsets = PackedFloat32Array(0, 0.464, 1)
+colors = PackedColorArray(0.820313, 0.57954293, 0, 1, 0.74849004, 0.18007135, 2.8878452e-07, 1, 0.19835305, 0.07374825, 0.01662867, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qu4a1"]
+gradient = SubResource("Gradient_mdl7e")
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_70d11"]
+
+[sub_resource type="Curve" id="Curve_cw2d6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25827813, 0.6067416), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_khinc"]
+curve = SubResource("Curve_cw2d6")
+
+[sub_resource type="Curve" id="Curve_bruh7"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6eyey"]
+curve = SubResource("Curve_bruh7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d3wef"]
+angle_min = -360.0
+angle_max = 360.00003
+direction = Vector3(0, 0, 1)
+spread = 180.0
+initial_velocity_min = -2500.0
+initial_velocity_max = 2500.0
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_70d11")
+velocity_limit_curve = SubResource("CurveTexture_6eyey")
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_khinc")
+color_ramp = SubResource("GradientTexture1D_qu4a1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4126"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_lkdrv"]
+material = SubResource("StandardMaterial3D_o4126")
+
 [node name="Player" type="CharacterBody3D" unique_id=426554783]
 motion_mode = 1
 script = ExtResource("1_kne1u")
@@ -97,3 +144,25 @@ shape = SubResource("SphereShape3D_mdl7e")
 [node name="RightGun" type="CollisionShape3D" parent="." unique_id=221835930]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
 shape = SubResource("SphereShape3D_qu4a1")
+
+[node name="RightGunFlame" type="GPUParticles3D" parent="." unique_id=1522273311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
+emitting = false
+amount = 64
+lifetime = 0.4
+one_shot = true
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_d3wef")
+draw_pass_1 = SubResource("SphereMesh_lkdrv")
+
+[node name="LeftGunFlame" type="GPUParticles3D" parent="." unique_id=2110559494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
+emitting = false
+amount = 64
+lifetime = 0.4
+one_shot = true
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_d3wef")
+draw_pass_1 = SubResource("SphereMesh_lkdrv")
