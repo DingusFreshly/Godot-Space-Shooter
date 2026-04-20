@@ -48,15 +48,82 @@ size = Vector3(0.48, 1.72, 0.32)
 
 [sub_resource type="SphereMesh" id="SphereMesh_to5er"]
 
+[sub_resource type="Animation" id="Animation_rrxks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sparks:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6o7x5"]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sparks:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4n8h"]
+_data = {
+&"RESET": SubResource("Animation_rrxks"),
+&"explode": SubResource("Animation_6o7x5")
+}
+
 [node name="Explosion" type="Node3D" unique_id=1200306682]
 
 [node name="Sparks" type="GPUParticles3D" parent="." unique_id=36894184]
+emitting = false
 amount = 60
 lifetime = 2.11
+one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_s4321")
 draw_pass_1 = SubResource("PrismMesh_s33d2")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=2038200315]
+emitting = false
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_qjsk2")
 draw_pass_1 = SubResource("SphereMesh_to5er")
+
+[node name="Play" type="AnimationPlayer" parent="." unique_id=2134991006]
+libraries/ = SubResource("AnimationLibrary_i4n8h")

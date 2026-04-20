@@ -2,28 +2,18 @@ extends RigidBody3D
 class_name Asteroid 
 
 @export var direction: Vector3
-@export var health: int
-
-signal damaged(amount: int)
+@export var health: Health
 @export var size : float
 @export var speed: float
+
 const ASTEROID_SCENE : PackedScene = preload("res://scenes/asteroid.tscn")
-<<<<<<< Updated upstream
 
 var rotation_vec: Vector3
 
-static func spawn(size: float, direction: Vector3, speed: float) -> Asteroid:
-	var asteroid : Asteroid = ASTEROID_SCENE.instantiate()
-	asteroid.size = size
-	asteroid.direction = direction
-	asteroid.speed = speed
-	return asteroid
-	
-	
-=======
->>>>>>> Stashed changes
+func damage(amount: int):
+	health.take_damage(amount)
 
-var rotation_vec: Vector3
+const EXPLOSION_SCENE := preload("res://scenes/Explosion.tscn")
 
 static func spawn(size: float, direction: Vector3, speed: float) -> Asteroid:
 	var asteroid : Asteroid = ASTEROID_SCENE.instantiate()
@@ -39,9 +29,19 @@ func _ready() -> void:
 	var rand = deg_to_rad(randf_range(-90.0, 90.0))
 	rotation_vec = Vector3(rand, rand, rand) 
 	
+	health = Health.new(size)
+	health.died.connect(die)
+	
 	$Mesh.scale = Vector3.ONE * size
 	$Shape.scale = Vector3.ONE * size
 
+func die():
+	print("destroyed asteroid")
+	var exp := EXPLOSION_SCENE.instantiate()
+	exp.global_position = global_position
+	exp.get_node("Play").play("explode")
+	get_node("../../VFX").add_child(exp)
+	queue_free()
 
 func _process(delta: float) -> void:
 	global_position += direction * delta * speed
@@ -53,4 +53,5 @@ func _process(delta: float) -> void:
 		queue_free()
 		
 func _exit_tree():
-	print("destroyed")
+	pass
+	#print("destroyed")

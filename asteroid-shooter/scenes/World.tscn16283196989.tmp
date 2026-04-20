@@ -35,8 +35,6 @@ fov = 75.48041
 script = ExtResource("3_1lgw5")
 
 [node name="Bullet" parent="." unique_id=733140242 instance=ExtResource("4_d1c63")]
-speed = null
-lifetime = null
 
 [node name="UI" type="Control" parent="." unique_id=613423065]
 layout_mode = 3

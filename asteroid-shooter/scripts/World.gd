@@ -33,13 +33,13 @@ func spawn() -> void:
 		new.position = $Player.global_position + random_vector3(-1.0,1.0).normalized() * SPAWN_RADIUS
 		$AsteroidSpawn.add_child(new)
 		
-		print("spawned")
+		#print("spawned")
 		
 		
 
 func _process(delta: float) -> void:
 	asteroid_timer += delta
-	print(asteroid_timer)
+	#print(asteroid_timer)
 	if asteroid_timer >= ASTEROID_SPAWN_RATE:
 		asteroid_timer = 0
 		spawn()
